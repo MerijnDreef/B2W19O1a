@@ -1,0 +1,95 @@
+body{
+    background-color:grey;
+}
+.invoer{
+    margin:0 auto;
+    width:700px;
+    height:200px;
+    background-color:#DEB887;
+}
+.keuze{
+    margin:0 auto;
+    width:700px;
+    height:100px;
+    background-color: white;
+    position: relative;
+}
+#word{
+    margin-top:30px;
+    margin-left: 30px;
+    margin-right:110px;
+    display:inline-block;
+}
+#check{
+    margin-left:30px;
+    margin-right:68px;
+    display:inline-block;
+}
+#input1{
+    position:relative;
+    display:inline-block;
+}
+#input2{
+    position:relative;
+    display:inline-block;
+    margin-right:120px;
+}
+button{
+    margin-left:220px;
+    padding:5px 15px;
+}
+.postition{
+    margin:0 auto;
+    width:300px;
+    height:100px;
+    position: absolute;
+    left:50px;
+    top:0px;
+}
+#plek1{
+    margin-top:20px;
+    margin-left:90px;
+    border: 1px solid black;
+    width:60px;
+    height:60px;
+    display:inline-block;
+    text-align:center;
+    line-height:60px;   
+    font-size:32px;
+}
+#plek2{
+    border: 1px solid black;
+    width:60px;
+    height:60px;
+    display:inline-block;
+    text-align:center;
+    line-height:60px;
+    font-size:32px; 
+}
+#plek3{
+    border: 1px solid black;
+    width:60px;
+    height:60px;
+    display:inline-block;
+    text-align:center;
+    line-height:60px; 
+    font-size:32px;
+}
+#plek4{
+    border: 1px solid black;
+    width:60px;
+    height:60px;
+    display:inline-block;
+    text-align:center;
+    line-height:60px; 
+    font-size:32px;
+}
+#plek5{
+    border: 1px solid black;
+    width:60px;
+    height:60px;
+    display:inline-block;
+    text-align:center;
+    line-height:60px; 
+    font-size:32px;
+}
