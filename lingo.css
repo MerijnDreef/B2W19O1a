@@ -10,32 +10,39 @@ body{
 .keuze{
     margin:0 auto;
     width:700px;
-    height:100px;
-    background-color: white;
+    height:150px;
+    background-color: 	#FFF8DC;
     position: relative;
 }
 #word{
     margin-top:30px;
     margin-left: 30px;
-    margin-right:110px;
+    margin-right:131px;
     display:inline-block;
+    font-size:22px;
 }
 #check{
     margin-left:30px;
-    margin-right:68px;
+    margin-right:10px;
     display:inline-block;
+    font-size:22px;
 }
-#input1{
-    position:relative;
+.input1{
+    border: 0.1px solid #A9A9A9;
+    margin-top:10px;
     display:inline-block;
+    background-color:white;
+    height:40.2px;
+    width:371px;
 }
 #input2{
     position:relative;
     display:inline-block;
-    margin-right:120px;
+    margin-right:50px;
+    font-size:30px;
 }
 button{
-    margin-left:220px;
+    margin-left:280px;
     padding:5px 15px;
 }
 .postition{
@@ -47,49 +54,54 @@ button{
     top:0px;
 }
 #plek1{
-    margin-top:20px;
+    margin-top:30px;
     margin-left:90px;
+    margin-right:20px;
     border: 1px solid black;
-    width:60px;
-    height:60px;
+    width:80px;
+    height:80px;
     display:inline-block;
     text-align:center;
-    line-height:60px;   
+    line-height:80px;   
     font-size:32px;
 }
 #plek2{
+    margin-right:20px;
     border: 1px solid black;
-    width:60px;
-    height:60px;
+    width:80px;
+    height:80px;
     display:inline-block;
     text-align:center;
-    line-height:60px;
+    line-height:80px; 
     font-size:32px; 
 }
 #plek3{
+    margin-right:20px;
     border: 1px solid black;
-    width:60px;
-    height:60px;
+    width:80px;
+    height:80px;
     display:inline-block;
     text-align:center;
-    line-height:60px; 
+    line-height:80px; 
     font-size:32px;
 }
 #plek4{
+    margin-right:20px;
     border: 1px solid black;
-    width:60px;
-    height:60px;
+    width:80px;
+    height:80px;
     display:inline-block;
     text-align:center;
-    line-height:60px; 
+    line-height:80px;  
     font-size:32px;
 }
 #plek5{
+    margin-right:20px;
     border: 1px solid black;
-    width:60px;
-    height:60px;
+    width:80px;
+    height:80px;
     display:inline-block;
     text-align:center;
-    line-height:60px; 
+    line-height:80px; 
     font-size:32px;
 }

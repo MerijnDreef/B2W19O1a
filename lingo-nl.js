@@ -478,3 +478,67 @@ var words = [
 	"zeker",
 	"zever",
 	"zeeen"];
+
+document.getElementById("button").onclick = checkLetter;
+var x = document.getElementsByClassName("input1");
+var y = document.getElementById("input2");
+var guessedLetters = [
+	document.getElementById("plek1"),
+	document.getElementById("plek2"),
+	document.getElementById("plek3"),
+	document.getElementById("plek4"),
+	document.getElementById("plek5"),
+];
+var isChecked = [
+	false,
+	false,
+	false,
+	false,
+	false
+];
+
+
+
+var letters = [];
+for (let i = 0; i < 5; i++) {
+	var letter = {
+		isGuessed: false,
+		currentLetter: '',
+	}
+	letters.push(letter);
+}
+
+var chosenWord = words[Math.floor(Math.random() * words.length)]
+chosenWord.value.charAt(0)
+
+function checkLetter() {
+	console.log(x.value)
+	var word = x.value
+	console.log(word)
+	words = word.split("")
+	console.log(words)
+	for (index = 0; index < words.length; index++) {
+		console.log(index);
+		letters[index]['currentLetter'] = words[index];
+		console.log(letters[index]['currentLetter'])
+	}
+	for (var i = 0; i < 5; i++) {
+		for (var j = 0; j < 5; j++) {
+			if (y.value.charAt(i) == x.value.charAt(j)) {
+				if (i == j && letters[i]['isGuessed'] == false) {
+					console.log(`Char at: ${i} are both the same`);
+					guessedLetters[i].style.backgroundColor = "red";
+					guessedLetters[i].style.borderRadius = "0%";
+					letters[i].isGuessed = true;
+				} else if(letters[i]['isGuessed'] == false){
+					console.log(`Char at: ${i} is the same as char at: ${j}`);
+					guessedLetters[i].style.backgroundColor = "yellow";
+					guessedLetters[i].style.borderRadius = "50%";
+				}
+			}
+		}
+	}
+	for (var i = 0; i < 5; i++) {
+		guessedLetters[i].innerHTML = y.value.charAt(i);
+	}
+}
