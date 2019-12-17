@@ -480,7 +480,7 @@ var words = [
 	"zeeen"];
 
 document.getElementById("button").onclick = checkLetter;
-var x = document.getElementsByClassName("input1");
+var x = document.getElementById("doel");
 var y = document.getElementById("input2");
 var guessedLetters = [
 	document.getElementById("plek1"),
@@ -509,17 +509,18 @@ for (let i = 0; i < 5; i++) {
 }
 
 var chosenWord = words[Math.floor(Math.random() * words.length)]
-chosenWord.value.charAt(0)
+x.innerHTML = chosenWord.charAt(0);
+
 
 function checkLetter() {
 	console.log(x.value)
 	var word = x.value
 	console.log(word)
-	words = word.split("")
-	console.log(words)
+	worden = word.split("")
+	console.log(worden)
 	for (index = 0; index < words.length; index++) {
 		console.log(index);
-		letters[index]['currentLetter'] = words[index];
+		letters[index]['currentLetter'] = worden[index];
 		console.log(letters[index]['currentLetter'])
 	}
 	for (var i = 0; i < 5; i++) {

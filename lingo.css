@@ -35,6 +35,11 @@ body{
     height:40.2px;
     width:371px;
 }
+#doel{
+    margin-left:20px;
+    font-size:30px;
+    display:inline;
+}
 #input2{
     position:relative;
     display:inline-block;
