@@ -513,33 +513,31 @@ x.innerHTML = chosenWord.charAt(0);
 
 
 function checkLetter() {
-	console.log(x.value)
-	var word = x.value
-	console.log(word)
-	worden = word.split("")
-	console.log(worden)
-	for (index = 0; index < words.length; index++) {
-		console.log(index);
-		letters[index]['currentLetter'] = worden[index];
-		console.log(letters[index]['currentLetter'])
+	var inputWord = y.value.split("");
+	var randomWord = chosenWord.split("");
+	for (index = 0; index < chosenWord.length; index++) {
+		letters[index]['currentLetter'] = randomWord[index];
+	}
+	for (var i = 0; i < 5; i++) {
+		if(letters[i].isGuessed == false) {
+			guessedLetters[i].innerHTML = inputWord[i];
+		}
 	}
 	for (var i = 0; i < 5; i++) {
 		for (var j = 0; j < 5; j++) {
-			if (y.value.charAt(i) == x.value.charAt(j)) {
+			if (inputWord[i] == randomWord[j]) {
 				if (i == j && letters[i]['isGuessed'] == false) {
-					console.log(`Char at: ${i} are both the same`);
 					guessedLetters[i].style.backgroundColor = "red";
 					guessedLetters[i].style.borderRadius = "0%";
 					letters[i].isGuessed = true;
 				} else if(letters[i]['isGuessed'] == false){
-					console.log(`Char at: ${i} is the same as char at: ${j}`);
 					guessedLetters[i].style.backgroundColor = "yellow";
 					guessedLetters[i].style.borderRadius = "50%";
 				}
+			} else if(letters[i].isGuessed == false) {
+				guessedLetters[i].style.backgroundColor = "white";
+				guessedLetters[i].style.borderRadius = "0";
 			}
 		}
-	}
-	for (var i = 0; i < 5; i++) {
-		guessedLetters[i].innerHTML = y.value.charAt(i);
 	}
 }
