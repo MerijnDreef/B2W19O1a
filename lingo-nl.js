@@ -497,8 +497,6 @@ var isChecked = [
 	false
 ];
 
-
-
 var letters = [];
 for (let i = 0; i < 5; i++) {
 	var letter = {
@@ -517,15 +515,17 @@ function checkLetter() {
 	var randomWord = chosenWord.split("");
 	for (index = 0; index < randomWord.length; index++) {
 		letters[index]['currentLetter'] = randomWord[index];
+		
 	}
 	if(letters[4].isGuessed != undefined) {
 		for (var i = 0; i < 5; i++) {
 			if(letters[i].isGuessed == false) {
-				guessedLetters[i].innerHTML = inputWord[i];
+				if( inputWord[i] != undefined){
+					guessedLetters[i].innerHTML = inputWord[i];
+				}
 			}
 		}
-	}
-	
+	} 
 	for (var i = 0; i < 5; i++) {
 		
 		for (var j = 0; j < 5; j++) {
@@ -546,6 +546,7 @@ function checkLetter() {
 			if(counter == 25){
 				chosenWord = words[Math.floor(Math.random() * words.length)]
 				x.innerHTML = chosenWord.charAt(0);
+				isGuessed = false
 			}
 		}
 	counter += 1;
