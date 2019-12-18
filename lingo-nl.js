@@ -511,23 +511,28 @@ for (let i = 0; i < 5; i++) {
 var chosenWord = words[Math.floor(Math.random() * words.length)]
 x.innerHTML = chosenWord.charAt(0);
 
-
+var counter = 0;
 function checkLetter() {
 	var inputWord = y.value.split("");
 	var randomWord = chosenWord.split("");
-	for (index = 0; index < chosenWord.length; index++) {
+	for (index = 0; index < randomWord.length; index++) {
 		letters[index]['currentLetter'] = randomWord[index];
 	}
-	for (var i = 0; i < 5; i++) {
-		if(letters[i].isGuessed == false) {
-			guessedLetters[i].innerHTML = inputWord[i];
+	if(letters[4].isGuessed != undefined) {
+		for (var i = 0; i < 5; i++) {
+			if(letters[i].isGuessed == false) {
+				guessedLetters[i].innerHTML = inputWord[i];
+			}
 		}
 	}
+	
 	for (var i = 0; i < 5; i++) {
+		
 		for (var j = 0; j < 5; j++) {
 			if (inputWord[i] == randomWord[j]) {
+				
 				if (i == j && letters[i]['isGuessed'] == false) {
-					guessedLetters[i].style.backgroundColor = "red";
+					guessedLetters[i].style.backgroundColor = "green";
 					guessedLetters[i].style.borderRadius = "0%";
 					letters[i].isGuessed = true;
 				} else if(letters[i]['isGuessed'] == false){
@@ -538,6 +543,11 @@ function checkLetter() {
 				guessedLetters[i].style.backgroundColor = "white";
 				guessedLetters[i].style.borderRadius = "0";
 			}
+			if(counter == 25){
+				chosenWord = words[Math.floor(Math.random() * words.length)]
+				x.innerHTML = chosenWord.charAt(0);
+			}
 		}
-	}
+	counter += 1;
+		}
 }

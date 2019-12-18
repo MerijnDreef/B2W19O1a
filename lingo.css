@@ -69,6 +69,7 @@ button{
     text-align:center;
     line-height:80px;   
     font-size:32px;
+    background-color:white;
 }
 #plek2{
     margin-right:20px;
@@ -79,6 +80,7 @@ button{
     text-align:center;
     line-height:80px; 
     font-size:32px; 
+    background-color:white;
 }
 #plek3{
     margin-right:20px;
@@ -89,6 +91,7 @@ button{
     text-align:center;
     line-height:80px; 
     font-size:32px;
+    background-color:white;
 }
 #plek4{
     margin-right:20px;
@@ -99,6 +102,7 @@ button{
     text-align:center;
     line-height:80px;  
     font-size:32px;
+    background-color:white;
 }
 #plek5{
     margin-right:20px;
@@ -109,4 +113,5 @@ button{
     text-align:center;
     line-height:80px; 
     font-size:32px;
+    background-color:white;
 }
