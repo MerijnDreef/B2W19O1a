@@ -552,30 +552,23 @@ function checkLetter() {
 			}
 			
 		}
-		function reset(){
-		for(i = 0; i < 5; i++){
-			guessedLetters[i].innerText = i + 1;
-			guessedLetters[i].style.backgroundColor = "white";
-			guessedLetters[i].style.borderRadius = "0%";
-		}
-	}
-		if(counter == 25){
-			y.value = "";
-			chosenWord = words[Math.floor(Math.random() * words.length)]
-			x.innerHTML = chosenWord.charAt(0);
-			console.log(chosenWord);
-			for(var k = 0; k< 5; k++){
-				console.log(k);
-				guessedLetters[k].innerText = k + 1;
-				guessedLetters[k].style.backgroundColor = "white";
-				guessedLetters[k].style.borderRadius = "0%";
-				console.log(k);
-			}
-			emptyLetters();
-				counter = 0;
+	
+		if(counter == 24){
+			reset();
+				counter = -1;
 		}
 		
 		letters[i].isGuessed = false;
-	counter += 1;
+		counter += 1;
 		}
 }
+	function reset(){
+		chosenWord = words[Math.floor(Math.random() * words.length)]
+			x.innerHTML = chosenWord.charAt(0);
+			console.log(chosenWord);
+			for(i = 0; i < 5; i++){
+				guessedLetters[i].innerText = i + 1;
+				guessedLetters[i].style.backgroundColor = "white";
+				guessedLetters[i].style.borderRadius = "0%";
+			}
+	}
