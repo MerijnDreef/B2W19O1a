@@ -480,6 +480,8 @@ var words = [
 	"zeeen"];
 
 document.getElementById("button").onclick = checkLetter;
+var knop = document.getElementById("button2");
+knop.onclick = reset;
 var x = document.getElementById("doel");
 var y = document.getElementById("input2");
 var guessedLetters = [
@@ -498,16 +500,21 @@ var isChecked = [
 ];
 
 var letters = [];
-for (let i = 0; i < 5; i++) {
-	var letter = {
-		isGuessed: false,
-		currentLetter: '',
+function emptyLetters() {
+	for (let i = 0; i < 5; i++) {
+		var letter = {
+			isGuessed: false,
+			currentLetter: '',
+		}
+		letters.push(letter);
 	}
-	letters.push(letter);
 }
-
+emptyLetters();
+	
+	
 var chosenWord = words[Math.floor(Math.random() * words.length)]
 x.innerHTML = chosenWord.charAt(0);
+console.log(chosenWord);
 
 var counter = 0;
 function checkLetter() {
@@ -543,12 +550,32 @@ function checkLetter() {
 				guessedLetters[i].style.backgroundColor = "white";
 				guessedLetters[i].style.borderRadius = "0";
 			}
-			if(counter == 25){
-				chosenWord = words[Math.floor(Math.random() * words.length)]
-				x.innerHTML = chosenWord.charAt(0);
-				isGuessed = false
-			}
+			
 		}
+		function reset(){
+		for(i = 0; i < 5; i++){
+			guessedLetters[i].innerText = i + 1;
+			guessedLetters[i].style.backgroundColor = "white";
+			guessedLetters[i].style.borderRadius = "0%";
+		}
+	}
+		if(counter == 25){
+			y.value = "";
+			chosenWord = words[Math.floor(Math.random() * words.length)]
+			x.innerHTML = chosenWord.charAt(0);
+			console.log(chosenWord);
+			for(var k = 0; k< 5; k++){
+				console.log(k);
+				guessedLetters[k].innerText = k + 1;
+				guessedLetters[k].style.backgroundColor = "white";
+				guessedLetters[k].style.borderRadius = "0%";
+				console.log(k);
+			}
+			emptyLetters();
+				counter = 0;
+		}
+		
+		letters[i].isGuessed = false;
 	counter += 1;
 		}
 }
