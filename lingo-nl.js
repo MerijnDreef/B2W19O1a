@@ -484,100 +484,55 @@ var knop = document.getElementById("button2");
 knop.onclick = reset;
 var x = document.getElementById("doel");
 var y = document.getElementById("input2");
-var guessedLetters = [
-	document.getElementById("plek1"),
-	document.getElementById("plek2"),
-	document.getElementById("plek3"),
-	document.getElementById("plek4"),
-	document.getElementById("plek5"),
-];
-var isChecked = [
-	false,
-	false,
-	false,
-	false,
-	false
-];
 
-var letters = [];
-function emptyLetters() {
-	for (let i = 0; i < 5; i++) {
-		var letter = {
-			isGuessed: false,
-			currentLetter: '',
-		}
-		letters.push(letter);
-		
-	}
-}
-emptyLetters();
-	
-	
 var chosenWord = words[Math.floor(Math.random() * words.length)]
 x.innerHTML = chosenWord.charAt(0);
 console.log(chosenWord);
 
 var counter = 0;
 function checkLetter() {
-	var inputWord = y.value.split("");
-	var randomWord = chosenWord.split("");
-	var tempArray = [];
-	for(i = 0; i < 5; i++){
-		tempArray[i] = inputWord[i];
+	var inputWord = y.value.split('');
+	var randomWord = chosenWord.split('');
+	//dit is voor als het op de goede plaats staat
+	for(var i = 0; i < inputWord.length; i++){
+		if(inputWord[i] == randomWord[i]){
+			document.getElementById('plek'+i).style.backgroundColor = "green";
+			document.getElementById('plek'+i).innerText = inputWord[i];
+			
+			randomWord[i] = null;
+			inputWord[i] = null;
+		}
 	}
-	console.log(tempArray);
-	for (index = 0; index < randomWord.length; index++) {
-		letters[index]['currentLetter'] = randomWord[index];
-		
-	}
-	if(letters[4].isGuessed != undefined) {
-		for (var i = 0; i < 5; i++) {
-			if(letters[i].isGuessed == false) {
-				if( inputWord[i] != undefined){
-					guessedLetters[i].innerHTML = inputWord[i];
-				}
+	//dit is voor als het er in is maar niet op de goede plek staat
+	for(var i = 0; i < inputWord.length; i++){
+		if(inputWord[i] != null){
+			if(randomWord.indexOf(inputWord[i]) !=-1){
+				document.getElementById('plek'+i).style.backgroundColor = "yellow";
+				document.getElementById('plek'+i).innerText = inputWord[i];
+
+				var pos = randomWord.indexOf(inputWord[i]);
+				inputWord[i] = null;
+				randomWord[pos] = null;
 			}
 		}
-	} 
-	for (var i = 0; i < 5; i++) {
-		
-		for (var j = 0; j < 6; j++) {
-			if (inputWord[i] == randomWord[j]) {
-				
-				if (i == j && letters[i]['isGuessed'] == false) {
-					guessedLetters[i].style.backgroundColor = "green";
-					guessedLetters[i].style.borderRadius = "0%";
-					letters[i].isGuessed = true;
-				}
-			 	else if(letters[i]['isGuessed'] == false){
-					guessedLetters[i].style.backgroundColor = "yellow";
-					guessedLetters[i].style.borderRadius = "50%";
-				}
-				else if(letters[i].isGuessed == false) {
-					guessedLetters[i].style.backgroundColor = "white";
-					guessedLetters[i].style.borderRadius = "0";
-				}
-			}
-		}
-	
-		if(counter == 24){
-			reset();
-				counter = -1;
-		}
-		
-		letters[i].isGuessed = false;
-		counter += 1;
-		}
+	}
+	//na 5 keer proberen zorgt dit dat het spel ge reset word
+	if(counter == 24){
+		reset();
+		counter = -1;
+	}
+	counter += 1;
 }
-	function reset(){
-		chosenWord = words[Math.floor(Math.random() * words.length)]
-			x.innerHTML = chosenWord.charAt(0);
-			console.log(chosenWord);
-			counter = 0;
-			for(i = 0; i < 5; i++){
-				guessedLetters[i].innerText = i + 1;
-				guessedLetters[i].style.backgroundColor = "white";
-				guessedLetters[i].style.borderRadius = "0%";
-			}
+//dit is de functie om het spel te resetten qua woorden
+function reset(){
+	chosenWord = words[Math.floor(Math.random() * words.length)]
+	x.innerHTML = chosenWord.charAt(0);
+	console.log(chosenWord);
+	counter = 0;
+		for(i = 0; i < 5; i++){
+			document.getElementById('plek'+i).innerText = i;
+			document.getElementById('plek'+i).style.backgroundColor = "white";
+			document.getElementById('plek'+i).style.borderRadius = "0%";
+		}
 	}
 	
