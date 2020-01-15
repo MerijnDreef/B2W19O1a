@@ -507,7 +507,7 @@ function emptyLetters() {
 			currentLetter: '',
 		}
 		letters.push(letter);
-		console.log(letters)
+		
 	}
 }
 emptyLetters();
@@ -521,6 +521,11 @@ var counter = 0;
 function checkLetter() {
 	var inputWord = y.value.split("");
 	var randomWord = chosenWord.split("");
+	var tempArray = [];
+	for(i = 0; i < 5; i++){
+		tempArray[i] = inputWord[i];
+	}
+	console.log(tempArray);
 	for (index = 0; index < randomWord.length; index++) {
 		letters[index]['currentLetter'] = randomWord[index];
 		
