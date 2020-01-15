@@ -507,6 +507,7 @@ function emptyLetters() {
 			currentLetter: '',
 		}
 		letters.push(letter);
+		console.log(letters)
 	}
 }
 emptyLetters();
@@ -535,22 +536,23 @@ function checkLetter() {
 	} 
 	for (var i = 0; i < 5; i++) {
 		
-		for (var j = 0; j < 5; j++) {
+		for (var j = 0; j < 6; j++) {
 			if (inputWord[i] == randomWord[j]) {
 				
 				if (i == j && letters[i]['isGuessed'] == false) {
 					guessedLetters[i].style.backgroundColor = "green";
 					guessedLetters[i].style.borderRadius = "0%";
 					letters[i].isGuessed = true;
-				} else if(letters[i]['isGuessed'] == false){
+				}
+			 	else if(letters[i]['isGuessed'] == false){
 					guessedLetters[i].style.backgroundColor = "yellow";
 					guessedLetters[i].style.borderRadius = "50%";
 				}
-			} else if(letters[i].isGuessed == false) {
-				guessedLetters[i].style.backgroundColor = "white";
-				guessedLetters[i].style.borderRadius = "0";
+				else if(letters[i].isGuessed == false) {
+					guessedLetters[i].style.backgroundColor = "white";
+					guessedLetters[i].style.borderRadius = "0";
+				}
 			}
-			
 		}
 	
 		if(counter == 24){
@@ -566,9 +568,11 @@ function checkLetter() {
 		chosenWord = words[Math.floor(Math.random() * words.length)]
 			x.innerHTML = chosenWord.charAt(0);
 			console.log(chosenWord);
+			counter = 0;
 			for(i = 0; i < 5; i++){
 				guessedLetters[i].innerText = i + 1;
 				guessedLetters[i].style.backgroundColor = "white";
 				guessedLetters[i].style.borderRadius = "0%";
 			}
 	}
+	
